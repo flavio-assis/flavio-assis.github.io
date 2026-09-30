@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flávio de Assis | Engenharia de Dados & Software</title>
+  
+  <!-- Meta tags SEO e Open Graph -->
+  <meta name="description" content="Site pessoal e portfólio de Flávio de Assis. Engenheiro de Dados e Software focado em arquiteturas distribuídas, cloud e pipelines escaláveis." />
+  <meta name="author" content="Flávio de Assis" />
+  <meta property="og:title" content="Flávio de Assis | Engenharia de Dados & Software" />
+  <meta property="og:description" content="Construindo soluções modernas de dados, pipelines escaláveis e arquitetura de software." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flaviodeassis.com" />
+  
+  <!-- Favicon SVG moderno -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%234f46e5%22/><text y=%2266%22 x=%2250%22 text-anchor=%22middle%22 font-size=%2252%22 font-family=%22system-ui,sans-serif%22 font-weight=%22bold%22 fill=%22white%22>FA</text></svg>">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            primary: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b',
+            },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Estilos personalizados para gradientes e detalhes finos */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(100, 116, 139, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(100, 116, 139, 0.07) 1px, transparent 1px);
+    }
+    .dark .bg-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dark .glassmorphism {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    /* Suavizar transição de tema */
+    body {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-primary-500 selection:text-white min-h-screen flex flex-col justify-between">
+  
+  <!-- Background Glow FX -->
+  <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary-500/10 dark:bg-primary-500/15 blur-[120px] rounded-full"></div>
+    <div class="absolute top-[600px] -left-20 w-[400px] h-[400px] bg-cyan-500/10 dark:bg-cyan-500/10 blur-[100px] rounded-full"></div>
+    <div class="absolute inset-0 bg-grid-pattern"></div>
+  </div>
+
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-50 glassmorphism border-b border-slate-200/80 dark:border-slate-800/80 transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand / Logo -->
+      <a href="#" class="group flex items-center gap-2.5 font-bold text-lg tracking-tight text-slate-900 dark:text-white">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-600 to-indigo-500 text-white font-mono text-sm shadow-md group-hover:scale-105 transition-transform">
+          FA
+        </span>
+        <span class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+          Flávio de Assis
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#sobre" class="hover:text-primary-600 dark:hover:text-white transition-colors">Sobre</a>
+        <a href="#habilidades" class="hover:text-primary-600 dark:hover:text-white transition-colors">Habilidades</a>
+        <a href="#experiencia" class="hover:text-primary-600 dark:hover:text-white transition-colors">Experiência</a>
+        <a href="#projetos" class="hover:text-primary-600 dark:hover:text-white transition-colors">Projetos</a>
+        <a href="#contato" class="hover:text-primary-600 dark:hover:text-white transition-colors">Contato</a>
+      </nav>
+
+      <!-- Actions (Theme Toggle & Social Quick Links) -->
+      <div class="flex items-center gap-3">
+        <!-- LinkedIn Quick Icon -->
+        <a href="https://www.linkedin.com/in/flaviodeassis" target="_blank" rel="noopener noreferrer" 
+           class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" 
+           title="LinkedIn">
+          <i data-lucide="linkedin" class="w-4 h-4"></i>
+        </a>
+
+        <!-- GitHub Quick Icon -->
+        <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+           class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition" 
+           title="GitHub">
+          <i data-lucide="github" class="w-4 h-4"></i>
+        </a>
+
+        <div class="h-4 w-px bg-slate-300 dark:bg-slate-700"></div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" type="button" 
+                class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none focus:ring-2 focus:ring-primary-500" 
+                aria-label="Alternar tema claro/escuro">
+          <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-4 h-4 hidden"></i>
+          <i id="theme-toggle-light-icon" data-lucide="sun" class="w-4 h-4 hidden"></i>
+        </button>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" type="button" 
+                class="md:hidden p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition focus:outline-none"
+                aria-label="Abrir menu de navegação">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 px-4 pt-2 pb-4 space-y-1 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md">
+      <a href="#sobre" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Sobre</a>
+      <a href="#habilidades" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Habilidades</a>
+      <a href="#experiencia" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Experiência</a>
+      <a href="#projetos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Projetos</a>
+      <a href="#contato" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Contato</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-12 md:py-20 flex-grow">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-6 md:pt-12 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+      <div class="flex-1 space-y-6">
+        
+        <!-- Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Disponível para novos projetos & conexões
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+          Olá, sou <span class="bg-gradient-to-r from-primary-600 via-indigo-500 to-cyan-500 bg-clip-text text-transparent">Flávio de Assis</span>.
+        </h1>
+
+        <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
+          Engenheiro de Dados & Software focado em construir <span class="text-slate-900 dark:text-white font-medium">arquiteturas distribuídas</span>, pipelines em alta escala, automação de infraestrutura em nuvem e soluções de alto impacto.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="pt-2 flex flex-wrap items-center justify-center md:justify-start gap-4">
+          <a href="#projetos" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 hover:bg-primary-700 text-white font-medium text-sm transition-all shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40 hover:-translate-y-0.5">
+            <span>Ver Projetos</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/flaviodeassis" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5">
+            <i data-lucide="linkedin" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+
+        <!-- Quick Highlight Tags -->
+        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60">Data Platform</span>
+          <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60">GCP & AWS</span>
+          <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60">Pipelines & ETL</span>
+          <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800/80 border border-slate-200/60 dark:border-slate-700/60">Data Contracts & Quality</span>
+        </div>
+
+      </div>
+
+      <!-- Avatar / Graphic Accent -->
+      <div class="relative flex-shrink-0">
+        <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-3xl p-1 bg-gradient-to-tr from-primary-600 via-indigo-500 to-cyan-400 shadow-2xl shadow-primary-500/20">
+          <div class="w-full h-full rounded-[22px] bg-slate-900 dark:bg-slate-950 flex flex-col items-center justify-center text-center p-6 relative overflow-hidden group">
+            
+            <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary-500/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+            
+            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-primary-500 to-cyan-500 flex items-center justify-center text-white text-3xl font-bold font-mono mb-4 shadow-lg shadow-primary-500/30">
+              FA
+            </div>
+            
+            <h3 class="text-white font-bold text-lg">Flávio de Assis</h3>
+            <p class="text-xs text-primary-300 font-mono mt-1">Data & Software Engineer</p>
+            
+            <div class="mt-4 flex items-center gap-1.5 text-[11px] font-mono text-slate-400">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              flaviodeassis.com
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Sobre Mim Section -->
+    <section id="sobre" class="space-y-8 scroll-mt-24">
+      <div class="flex items-center gap-3">
+        <div class="p-2 rounded-lg bg-primary-500/10 text-primary-600 dark:text-primary-400">
+          <i data-lucide="user" class="w-5 h-5"></i>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+          Sobre Mim
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Bio Card Principal -->
+        <div class="lg:col-span-2 p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            Sou um engenheiro de software e dados apaixonado por transformar desafios complexos em sistemas simples, elegantes e escaláveis. Minha atuação foca no desenho de <span class="font-semibold text-slate-900 dark:text-white">plataformas de dados modernas</span>, governança, confiabilidade e automação de ponta a ponta.
+          </p>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            Tenho sólida experiência com pipelines analíticos em tempo real e batch, modelagem e contratos de dados, integração de infraestrutura com práticas de DevOps/IaC e garantia de qualidade em ambientes de missão crítica.
+          </p>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            Acredito fortemente no poder da engenharia de software aplicada aos dados — tratando pipelines como código testado, versionado, auditável e altamente observável.
+          </p>
+        </div>
+
+        <!-- Mini Highlights Cards -->
+        <div class="space-y-4">
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 mt-0.5">
+              <i data-lucide="database" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-900 dark:text-white text-sm">Data Platforms & Lakehouse</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Arquiteturas analíticas escaláveis com BigQuery, Delta Lake e ecossistema modern data stack.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded-xl bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400 mt-0.5">
+              <i data-lucide="cloud" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-900 dark:text-white text-sm">Cloud & Automação</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">GCP, AWS, Terraform, Docker, Kubernetes e esteiras de CI/CD automatizadas.</p>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm flex items-start gap-4">
+            <div class="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 mt-0.5">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold text-slate-900 dark:text-white text-sm">Qualidade & Governança</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Contratos de dados, testes automatizados, lineage e monitoramento proativo de integridade.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Habilidades & Stack Section -->
+    <section id="habilidades" class="space-y-8 scroll-mt-24">
+      <div class="flex items-center gap-3">
+        <div class="p-2 rounded-lg bg-primary-500/10 text-primary-600 dark:text-primary-400">
+          <i data-lucide="cpu" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Habilidades & Tecnologias
+          </h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Ferramentas e frameworks que utilizo no dia a dia</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Categoria 1: Dados -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary-500/40 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-primary-50 dark:bg-primary-950 text-primary-600 dark:text-primary-400">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">Engenharia de Dados</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Python</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">SQL Avançado</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Apache Airflow</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">dbt</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">BigQuery</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Apache Spark</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Kafka / Event Streaming</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Data Modeling</span>
+          </div>
+        </div>
+
+        <!-- Categoria 2: Cloud & DevOps -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary-500/40 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400">
+              <i data-lucide="server" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">Cloud & DevOps</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Google Cloud (GCP)</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">AWS</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Docker</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Kubernetes (GKE/EKS)</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Terraform (IaC)</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">GitHub Actions CI/CD</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Secret Manager & IAM</span>
+          </div>
+        </div>
+
+        <!-- Categoria 3: Software Engineering -->
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary-500/40 transition-colors">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+              <i data-lucide="terminal" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-semibold text-slate-900 dark:text-white">Software & Arquitetura</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">APIs REST / FastAPI</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">PostgreSQL</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Redis</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Git & GitOps</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Testes Unitários / Pytest</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Observabilidade & Logs</span>
+            <span class="px-3 py-1 text-xs font-mono rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/60">Linux / Bash Scripting</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Experiência & Trajetória Section -->
+    <section id="experiencia" class="space-y-8 scroll-mt-24">
+      <div class="flex items-center gap-3">
+        <div class="p-2 rounded-lg bg-primary-500/10 text-primary-600 dark:text-primary-400">
+          <i data-lucide="briefcase" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            Experiência & Foco de Atuação
+          </h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Destaques da minha atuação em plataformas de dados e engenharia</p>
+        </div>
+      </div>
+
+      <div class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-4 md:ml-6 space-y-10 pl-6 md:pl-8">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-primary-600 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 transition-transform"></div>
+          
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 hover:border-primary-500/40 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                Engenharia de Plataforma de Dados & Infraestrutura
+              </h3>
+              <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-primary-50 dark:bg-primary-950/60 text-primary-600 dark:text-primary-400 w-fit">
+                Atuação Atual
+              </span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Desenvolvimento e manutenção de ecossistemas de dados em larga escala na nuvem (GCP / BigQuery), com foco em orquestração de DAGs no Apache Airflow, contratos de dados, automação de acessos com Workload Identity / IAM e governança contínua.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">BigQuery</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Airflow</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Kubernetes</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">GCP IAM</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Data Contracts</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative group">
+          <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-400 dark:bg-slate-600 border-4 border-slate-50 dark:border-slate-950 group-hover:scale-125 transition-transform"></div>
+          
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3 hover:border-primary-500/40 transition-colors">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                Pipelines Analíticos, Ingestão & Transformação
+              </h3>
+              <span class="text-xs font-mono text-slate-500 dark:text-slate-400">
+                Engenharia de Dados
+              </span>
+            </div>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Criação de pipelines de ingestão a partir de bancos transacionais, APIs e eventos em tempo real, estruturando camadas de dados (Raw, Staging, Trusted e Curated) com otimização de custo e performance de queries.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Python</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">SQL</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">dbt</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">Data Modeling</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800">CI/CD</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projetos & Cases Section -->
+    <section id="projetos" class="space-y-8 scroll-mt-24">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-lg bg-primary-500/10 text-primary-600 dark:text-primary-400">
+            <i data-lucide="folder-git-2" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+              Projetos & Destaques
+            </h2>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Iniciativas, arquiteturas e ferramentas desenvolvidas</p>
+          </div>
+        </div>
+
+        <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+           class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-primary-600 dark:text-primary-400 hover:underline">
+          <span>Ver todos no GitHub</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Projeto 1 -->
+        <div class="group p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-primary-500/40 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400">
+                <i data-lucide="database-zap" class="w-5 h-5"></i>
+              </div>
+              <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+                 class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              Data Lake & Modern Data Stack Architecture
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Desenho e implementação de arquitetura de dados moderna com ingestão automatizada, governança de schemas e camadas analíticas otimizadas para alta performance em consultas analíticas.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-6 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">BigQuery</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Airflow</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Terraform</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">dbt</span>
+          </div>
+        </div>
+
+        <!-- Projeto 2 -->
+        <div class="group p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-primary-500/40 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="p-2 rounded-lg bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400">
+                <i data-lucide="shield-alert" class="w-5 h-5"></i>
+              </div>
+              <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+                 class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              Data Contract & Quality Framework
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Estruturação de contratos de dados (schema validation, SLA de ingestão, policy tags de segurança e classificação de dados sensíveis) aplicados diretamente no fluxo de CI/CD.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-6 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">JSON Schema</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Data Governance</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">CI/CD</span>
+          </div>
+        </div>
+
+        <!-- Projeto 3 -->
+        <div class="group p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-primary-500/40 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                <i data-lucide="workflow" class="w-5 h-5"></i>
+              </div>
+              <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+                 class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              Automação de Permissões & Workload Identity
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Ferramental e automação para provisionamento seguro de Service Accounts, binding de Kubernetes KSA com GSA no GKE e controle granular de datasets e secrets via GitOps.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-6 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">GCP IAM</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Kubernetes</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Security</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">GitOps</span>
+          </div>
+        </div>
+
+        <!-- Projeto 4 -->
+        <div class="group p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-primary-500/40 transition-all flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="p-2 rounded-lg bg-purple-50 dark:bg-purple-950 text-purple-600 dark:text-purple-400">
+                <i data-lucide="terminal-square" class="w-5 h-5"></i>
+              </div>
+              <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+                 class="p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition">
+                <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              Developer Tooling & CLI Utilities
+            </h3>
+            <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Desenvolvimento de utilitários de linha de comando em Python e scripts em shell para acelerar fluxos de trabalho de desenvolvimento, testes e validação de pipelines.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2 pt-6 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Python</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Typer / Click</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Bash</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800">Open Source</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contato & Redes Section -->
+    <section id="contato" class="space-y-8 scroll-mt-24">
+      <div class="p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-primary-900/10 via-white to-white dark:from-primary-950/40 dark:via-slate-900/90 dark:to-slate-900/90 border border-slate-200 dark:border-slate-800 text-center space-y-6 shadow-sm">
+        
+        <div class="inline-flex p-3 rounded-2xl bg-primary-500/10 text-primary-600 dark:text-primary-400">
+          <i data-lucide="send" class="w-6 h-6"></i>
+        </div>
+
+        <div class="max-w-xl mx-auto space-y-2">
+          <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            Vamos conversar?
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+            Sinta-se à vontade para me mandar uma mensagem no LinkedIn ou trocar ideias sobre engenharia de dados, cloud e arquitetura.
+          </p>
+        </div>
+
+        <!-- Botões de Ação de Contato -->
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+          
+          <!-- LinkedIn Principal -->
+          <a href="https://www.linkedin.com/in/flaviodeassis" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-medium text-sm transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+            <span>Conectar no LinkedIn</span>
+          </a>
+
+          <!-- GitHub -->
+          <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-slate-800 dark:hover:bg-slate-700 font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5">
+            <i data-lucide="github" class="w-4 h-4"></i>
+            <span>Perfil no GitHub</span>
+          </a>
+
+          <!-- Copiar Link / Contato -->
+          <button id="copy-domain-btn" type="button" 
+                  class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-medium text-sm transition-all shadow-sm">
+            <i data-lucide="copy" class="w-4 h-4" id="copy-icon"></i>
+            <span id="copy-text">Copiar Site (flaviodeassis.com)</span>
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-8 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+      
+      <div class="flex items-center gap-2">
+        <span class="font-semibold text-slate-700 dark:text-slate-300">Flávio de Assis</span>
+        <span>•</span>
+        <span>© <span id="current-year"></span> Todos os direitos reservados.</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="https://www.linkedin.com/in/flaviodeassis" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-white transition">LinkedIn</a>
+        <a href="https://github.com/flavio-assis" target="_blank" rel="noopener noreferrer" class="hover:text-primary-600 dark:hover:text-white transition">GitHub</a>
+        <a href="#" class="hover:text-primary-600 dark:hover:text-white transition">Voltar ao topo ↑</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Interatividade JavaScript -->
+  <script>
+    // Inicialização dos ícones Lucide
+    lucide.createIcons();
+
+    // Ano atual no Footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Gestão de Tema Dark / Light
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function updateThemeIcons(isDark) {
+      if (isDark) {
+        darkIcon.classList.add('hidden');
+        lightIcon.classList.remove('hidden');
+      } else {
+        lightIcon.classList.add('hidden');
+        darkIcon.classList.remove('hidden');
+      }
+    }
+
+    // Inicialização com base no localStorage ou preferência do sistema
+    const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'dark' || (!storedTheme && userPrefersDark)) {
+      document.documentElement.classList.add('dark');
+      updateThemeIcons(true);
+    } else {
+      document.documentElement.classList.remove('dark');
+      updateThemeIcons(false);
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+      lucide.createIcons();
+    });
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Botão de Copiar Link do Site
+    const copyBtn = document.getElementById('copy-domain-btn');
+    const copyText = document.getElementById('copy-text');
+    const copyIcon = document.getElementById('copy-icon');
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('https://flaviodeassis.com').then(() => {
+        const originalText = copyText.textContent;
+        copyText.textContent = 'Link copiado!';
+        copyBtn.classList.add('text-emerald-600', 'dark:text-emerald-400');
+        
+        setTimeout(() => {
+          copyText.textContent = originalText;
+          copyBtn.classList.remove('text-emerald-600', 'dark:text-emerald-400');
+        }, 2000);
+      });
+    });
+  </script>
+
+</body>
+</html>
